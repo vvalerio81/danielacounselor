@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
-
-const Item = ({ title, description, price, pictureUrl, duration, initialDate}) => {
+const Item = ({ id, title, description, price, pictureUrl, duration, initialDate}) => {
 
     const divStyle = {
         margin: '40px',
@@ -26,7 +26,7 @@ const Item = ({ title, description, price, pictureUrl, duration, initialDate}) =
                     <li className="list-group-item">Fecha de Inicio: {initialDate}</li>
                 </ul>
             <div className="card-body">
-                <a href="https://www.google.com/" className="card-link">mas detalles...</a>
+                <Link to={`/item/${id}`}>mas detalles...</Link>
             </div>
 
         </div>
