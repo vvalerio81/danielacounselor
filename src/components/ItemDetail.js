@@ -1,5 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState} from 'react';
 import ItemCount from './ItemCount';
+import { Link } from 'react-router-dom';
 
 
 const Item = ({ items }) => {
@@ -10,6 +12,13 @@ const Item = ({ items }) => {
         height: 'auto',
       };
     
+    const [itemCount, setItemCount] = useState(0);
+
+    const onAdd = (qty) => {
+        alert("You have selected " + qty + " item.");
+        setItemCount(qty);
+        test.addToCart(items, qty);
+    }
        
     return (
     <>
@@ -35,8 +44,11 @@ const Item = ({ items }) => {
                         <li className="list-group-item">Capacidad: {items.stock}</li>
 
                     </ul>
-                    <ItemCount stock={items.stock} initial={0} />
-                </td>
+                    {
+                        itemCount === 0
+                        ? <ItemCount stock={items.stock} initial={itemCount} onAdd={onAdd} />
+                        : <Link to='/cart' style={{textDecoration: "none"}}>CheckOut</Link>
+                    }                </td>
                 
             </tr>
         </div>
