@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState} from 'react';
+import { useContext, useState} from 'react';
 import ItemCount from './ItemCount';
 import Checkout from './Checkout';
+import { CartContext } from './CartContext';
 
 const Item = ({ items }) => {
 
@@ -13,10 +14,12 @@ const Item = ({ items }) => {
     
     const [itemCount, setItemCount] = useState(0);
 
+    const test = useContext(CartContext)
+
     const onAdd = (qty) => {
         alert("You have selected " + qty + " item.");
         setItemCount(qty);
-        test.addToCart(items, qty);
+        test.funcionGlobarAddtoCard(items);
     }
        
     return (

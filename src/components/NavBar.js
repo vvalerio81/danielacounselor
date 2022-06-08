@@ -24,7 +24,8 @@ const NavBar = () => {
                   </li>
                 </ul>
               </div>
-            <div><CardWidget /></div>
+              <Link to='/cart' style={{textDecoration: "none"}}><CardWidget /></Link>
+            <div></div>
             </div>
          </nav>
     );
