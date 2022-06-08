@@ -3,7 +3,7 @@ import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const ItemCount = ({stock,initial}) => {
+const ItemCount = ({stock,initial, onAdd}) => {
 
 
     const [cantidad, setCantidad] = useState(initial);
@@ -36,7 +36,11 @@ const ItemCount = ({stock,initial}) => {
              </tr>
         </div>
         <div>
-            <button type="button" onClick={agregar} class="btn btn-primary">Agregar al Carrito</button>
+        {
+            stock && cantidad
+            ?<button type="button" onClick={() => onAdd(cantidad)} class="btn btn-primary">Agregar al Carrito</button>
+            :<button type="button" onClick={agregar} class="btn btn-primary">Agregar al Carrito</button>
+        }
         </div>
         </>
 

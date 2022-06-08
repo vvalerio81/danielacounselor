@@ -1,8 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState} from 'react';
 import ItemCount from './ItemCount';
-import { Link } from 'react-router-dom';
-
+import Checkout from './Checkout';
 
 const Item = ({ items }) => {
 
@@ -44,11 +43,14 @@ const Item = ({ items }) => {
                         <li className="list-group-item">Capacidad: {items.stock}</li>
 
                     </ul>
+                    <div className="card-body" >
                     {
                         itemCount === 0
                         ? <ItemCount stock={items.stock} initial={itemCount} onAdd={onAdd} />
-                        : <Link to='/cart' style={{textDecoration: "none"}}>CheckOut</Link>
-                    }                </td>
+                        : <Checkout />
+                    }      
+                    </div>         
+                </td>
                 
             </tr>
         </div>
