@@ -4,7 +4,7 @@ import ItemCount from './ItemCount';
 import Checkout from './Checkout';
 import { CartContext } from './CartContext';
 
-const Item = ({ items }) => {
+const ItemDetail = ({ items }) => {
 
     const divStyle = {
         margin: '0',
@@ -19,7 +19,7 @@ const Item = ({ items }) => {
     const onAdd = (qty) => {
         alert("You have selected " + qty + " item.");
         setItemCount(qty);
-        test.funcionGlobarAddtoCard(items);
+        test.addToCart(items, qty);
     }
        
     return (
@@ -65,4 +65,4 @@ const Item = ({ items }) => {
 
 };
 
-export default Item;
+export default ItemDetail;

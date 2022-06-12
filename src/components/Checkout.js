@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Checkout = () => {
     return (
-        <button type="button" class="btn btn-primary">
+        <button type="button" className="btn btn-primary">
         <Link to='/cart' style={{textDecoration: "none", color:'white'}}>CheckOut</Link>
         </button>
         );
