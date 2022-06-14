@@ -1,34 +1,30 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemList from './ItemList';
-import customFetch from "../utils/customFetch";
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-const { products } = require('../utils/products');
+import { useParams } from 'react-router';
+import { firestoreFetch } from '../utils/firestoreFetch';
 
-
-const ItemListContainer = ({greeting}) => {
-
+const ItemListContainer = () => {
     const [datos, setDatos] = useState([]);
-    const {id} = useParams();
+    const { categoryId } = useParams();
 
-    
-    useEffect(() => { id === undefined
-        ? customFetch(2000, products)
+    //componentDidUpdate
+    useEffect(() => {
+        firestoreFetch(categoryId)
             .then(result => setDatos(result))
-            .catch(err => console.log(err))
+            .catch(err => console.log(err));
+    }, [categoryId]);
 
-        : customFetch(2000, products.filter(item => item.categoryId === parseInt(id)))
-            .then(result => setDatos(result))
-            .catch(err => console.log(err))
-    }, [id]);
+    //componentWillUnmount
+    useEffect(() => {
+        return (() => {
+            setDatos([]);
+        })
+    }, []);
 
-
-    return(
-        <div>
-        <h1> {greeting} </h1>
-        <ItemList items={datos} />
-        </div>
+    return (
+            <ItemList items={datos} />
     );
-};
+}
 
 export default ItemListContainer;
