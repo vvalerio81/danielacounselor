@@ -55,7 +55,7 @@ const products = [
         cost: 7500,
         stock: 30,
         description: "Tecnica de terapía Detectar cuando estoy interfiriendo Guiar sin influir Prácticas",
-        Duration: "8 clases",
+        duration: "8 clases",
         InitialDate: "27 de Octubree 2022",
         image: [
           "https://www.educarchile.cl/sites/default/files/2021-04/IA-Educacion-Socioemocional.png"],

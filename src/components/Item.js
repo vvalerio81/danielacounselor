@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
-const Item = ({ id, title, description, price, pictureUrl, duration, initialDate}) => {
+const Item = ({ id, title, description, price, pictureUrl, durations, initialDate}) => {
 
     const divStyle = {
         margin: '40px',
@@ -10,6 +10,8 @@ const Item = ({ id, title, description, price, pictureUrl, duration, initialDate
         height: 'auto',
       };
        
+    
+    console.log(`consola ${pictureUrl}`);
     return (
     <>
 
@@ -22,7 +24,7 @@ const Item = ({ id, title, description, price, pictureUrl, duration, initialDate
             </div>
                 <ul className="list-group list-group-flush">
                     <li className="list-group-item">Precio: ${price}</li>
-                    <li className="list-group-item">Duracion: {duration}</li>
+                    <li className="list-group-item">Duracion: {durations}</li>
                     <li className="list-group-item">Fecha de Inicio: {initialDate}</li>
                 </ul>
             <div className="card-body">
