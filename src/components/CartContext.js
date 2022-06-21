@@ -20,9 +20,11 @@ const CartContextP = ({ children }) => {
                 }
             ]);
         } else {
-            //al encontrarlo, entonces aumentamos el qty de ese producto
+
             found.qtyItem += qty;
-        }
+            setCartList([
+                ...cartList
+            ]);        }
     }
     
     const borrarTodo = () => {
@@ -45,7 +47,7 @@ const CartContextP = ({ children }) => {
     }
 
     const calcImpuestos = () => {
-        return calcSubTotal() * 0.18;
+        return calcSubTotal() * 0.21;
     }
 
     const precioFinal = () => {

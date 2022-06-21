@@ -1,5 +1,5 @@
 import { query, orderBy, where, collection, getDocs } from '@firebase/firestore';
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import db from './firebaseConfig';
 
 export const firestoreFetch = async (categoryId) => {
@@ -27,7 +27,13 @@ export const firestoreFetchOne = async (idItem) => {
           ...docSnap.data()
       }
     } else {
-      // doc.data() will be undefined in this case
       console.log("No such document!");
     }
+}
+
+export const createOrderInFirestore = async (order) => {
+        const newOrderRef = doc(collection(db, "orders"));
+    
+        await setDoc(newOrderRef, order);
+        return newOrderRef;
 }
