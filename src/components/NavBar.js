@@ -17,10 +17,10 @@ const NavBar = () => {
               <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="nav justify-content-center">
                   <li className="nav-item">
-                    <Link to='/category/1' className="nav-link">Desarrollo Personal</Link>
+                    <Link to='/category/personal' className="nav-link">Desarrollo Personal</Link>
                   </li>
                   <li className="nav-item">
-                    <Link to='/category/2' className="nav-link">Desarrollo Profesional</Link>
+                    <Link to='/category/profesional' className="nav-link">Desarrollo Profesional</Link>
                   </li>
                 </ul>
               </div>
